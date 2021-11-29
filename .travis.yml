@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6"
+install:
+  - travis_retry pip install -r requirements.txt
+  - pip install pytest-cov
+  - pip install coveralls
+script:
+  - pytest
+  - pytest --cov=betabinom_full/
+after_success:
+  - coveralls
